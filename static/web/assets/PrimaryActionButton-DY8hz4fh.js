@@ -1,0 +1,2 @@
+import{j as n,bJ as a,H as m}from"./vendor-DM3YzW4g.js";import{I as u}from"./ThemeContext-Ch4E8_Wm.js";function p({title:r,tooltip:o,icon:t,color:s,hidden:e,onClick:i}){return e?null:n.jsx(a,{label:o??r,position:"bottom",hidden:!o,children:n.jsx(m,{leftSection:t&&n.jsx(u,{icon:t}),color:s,radius:"sm",p:"xs",onClick:i,children:r})})}export{p as P};
+//# sourceMappingURL=PrimaryActionButton-DY8hz4fh.js.map

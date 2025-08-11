@@ -1591,8 +1591,14 @@ def frontend_server(c):
         c: Context variable
     """
     info('Starting frontend development server')
-    yarn(c, 'yarn run compile')
-    yarn(c, 'yarn run dev --host')
+    
+    # Get current environment variables
+    import os
+    env = dict(os.environ)
+    
+    # Pass environment variables to yarn commands
+    yarn_with_env(c, 'yarn run compile', env)
+    yarn_with_env(c, 'yarn run dev --host', env)
 
 
 @task

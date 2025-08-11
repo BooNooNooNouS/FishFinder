@@ -1,0 +1,44 @@
+# This file will be copied to /etc/nginx/sites-available/inventree
+# and then a symlink will be created to /etc/nginx/sites-enabled/inventree
+# before testing the configuration.
+
+server {
+    listen 80;
+    server_name 35.93.33.231;
+
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-XSS-Protection "1; mode=block" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "no-referrer-when-downgrade" always;
+
+    # Serve static files (CSS, JS, images)
+    location /static/ {
+        alias /opt/inventree/src/backend/InvenTree/web/static/;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        add_header Vary "Accept-Encoding";
+    }
+
+    # Serve media files (user uploads)
+    location /media/ {
+        alias /opt/inventree/media/;
+        expires 1y;
+        add_header Cache-Control "public, immutable";
+        add_header Vary "Accept-Encoding";
+    }
+
+    # Proxy everything else to Gunicorn
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        
+        # Timeout settings
+        proxy_connect_timeout 60s;
+        proxy_send_timeout 60s;
+        proxy_read_timeout 60s;
+    }
+} 

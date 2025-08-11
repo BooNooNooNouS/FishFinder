@@ -5,6 +5,7 @@ __pycache__/
 
 # Distribution / packaging
 .Python
+venv/
 env/
 inventree-env/
 .venv/
@@ -111,3 +112,9 @@ api.yaml
 # web frontend (static files)
 src/backend/InvenTree/web/static
 InvenTree/web/static
+
+# Other ff specific files
+backup/
+fishfinder_*.tar.gz
+src/backend/InvenTree/prod_config.yaml
+
