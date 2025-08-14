@@ -53,6 +53,11 @@ build_frontend() {
     yarn install
     yarn run extract # extract the translations
     yarn run compile # compile the translations
+    
+    # Set default locale for the build (Spanish for Mexican deployment)
+    export VITE_DEFAULT_LOCALE=${VITE_DEFAULT_LOCALE:-es_MX}
+    echo "Building with default locale: $VITE_DEFAULT_LOCALE"
+    
     yarn run build
     
     # Copy compiled locales to the build output.  Vite does not do this automatically.

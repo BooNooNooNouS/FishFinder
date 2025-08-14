@@ -1,0 +1,2 @@
+import{eJ as o,r as s,j as r,i}from"./vendor-DM3YzW4g.js";import{N as n}from"./index-620rTnyc.js";import{Wrapper as c}from"./Layout-DUDHQNgt.js";import{a as u,u as p}from"./ThemeContext-D5ZWpaIU.js";function x(){const t=u(),e=p(),a=o(n,300);return s.useEffect(()=>{a(t,e==null?void 0:e.state)},[t]),r.jsx(c,{titleText:i._({id:"ps9k8Y"}),loader:!0})}export{x as default};
+//# sourceMappingURL=LoggedIn-CpkidMyj.js.map

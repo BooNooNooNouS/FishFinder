@@ -1,0 +1,46 @@
+# This is a simple base image with python 3.12 installed.
+FROM ubuntu:20.04
+
+# Set environment variables
+ENV DEBIAN_FRONTEND=noninteractive
+ENV TZ=UTC
+
+# Update package list and install essential packages
+RUN apt-get update && apt-get install -y \
+    software-properties-common \
+    pkgconf \
+    curl \
+    wget \
+    git \
+    vim \
+    nano \
+    build-essential \
+    libldap2-dev \
+    libsasl2-dev \
+    && rm -rf /var/lib/apt/lists/*
+
+# Add deadsnakes PPA for Python 3.12
+RUN add-apt-repository ppa:deadsnakes/ppa
+
+# Install Python 3.12
+RUN apt-get update && apt-get install -y \
+    python3.12 \
+    python3.12-dev \
+    python3.12-venv \
+    && rm -rf /var/lib/apt/lists/*
+
+# Install pip for Python 3.12
+RUN curl -sS https://bootstrap.pypa.io/get-pip.py | python3.12
+
+# Install uv for generating requirements with hashes
+RUN pip3.12 install uv
+
+# Create symlinks for python3.12
+RUN ln -sf /usr/bin/python3.12 /usr/bin/python3 && \
+    ln -sf /usr/bin/python3.12 /usr/bin/python
+
+# Set working directory
+WORKDIR /app
+
+# Default command
+CMD ["/bin/bash"] 

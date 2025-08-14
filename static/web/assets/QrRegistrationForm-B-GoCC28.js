@@ -1,0 +1,2 @@
+import{j as r,bP as x,B as d,A as j,c5 as m,i as s}from"./vendor-DM3YzW4g.js";import{b as u}from"./QRCode-Dvpr48_R.js";function b({url:e,secret:t,value:i,error:a,setValue:n}){return r.jsxs(r.Fragment,{children:[r.jsx(x,{}),r.jsx(u,{data:e}),r.jsxs(d,{children:[r.jsx(j,{id:"8VEDbV"}),r.jsx("br",{}),t]}),r.jsx(m,{required:!0,label:s._({id:"+RO3kt"}),description:s._({id:"6mSv4V"}),value:i,onChange:o=>n(o.currentTarget.value),error:a})]})}export{b as Q};
+//# sourceMappingURL=QrRegistrationForm-B-GoCC28.js.map

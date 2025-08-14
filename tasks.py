@@ -1137,6 +1137,31 @@ def server(c, address='127.0.0.1:8000', no_reload=False, no_threading=False):
     manage(c, cmd, pty=True)
 
 
+@task(
+    pre=[wait],
+    help={
+        'address': 'Server address:port (default=0.0.0.0:8000)',
+        'no_reload': 'Do not automatically reload the server in response to code changes',
+        'no_threading': 'Disable multi-threading for the development server',
+    },
+)
+def dev_server(c, address='0.0.0.0:8000', no_reload=False, no_threading=False):
+    """Launch a development server for Docker environments.
+    
+    This is the same as the server task but defaults to 0.0.0.0:8000
+    for Docker container access.
+    """
+    cmd = f'runserver {address}'
+
+    if no_reload:
+        cmd += ' --noreload'
+
+    if no_threading:
+        cmd += ' --nothreading'
+
+    manage(c, cmd, pty=True)
+
+
 @task(pre=[wait])
 def worker(c):
     """Run the InvenTree background worker process."""

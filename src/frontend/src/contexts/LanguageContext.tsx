@@ -11,7 +11,7 @@ import { useServerApiState } from '../states/ServerApiState';
 import { useStoredTableState } from '../states/StoredTableState';
 import { fetchGlobalStates } from '../states/states';
 
-export const defaultLocale = 'en';
+export const defaultLocale = 'es_MX';
 
 /*
  * Function which returns a record of supported languages.
@@ -19,44 +19,10 @@ export const defaultLocale = 'en';
  */
 export const getSupportedLanguages = (): Record<string, string> => {
   return {
-    ar: t`Arabic`,
-    bg: t`Bulgarian`,
-    cs: t`Czech`,
-    da: t`Danish`,
-    de: t`German`,
-    el: t`Greek`,
     en: t`English`,
     es: t`Spanish`,
-    es_MX: t`Spanish (Mexican)`,
-    et: t`Estonian`,
-    fa: t`Farsi / Persian`,
-    fi: t`Finnish`,
-    fr: t`French`,
-    he: t`Hebrew`,
-    hi: t`Hindi`,
-    hu: t`Hungarian`,
-    it: t`Italian`,
-    ja: t`Japanese`,
-    ko: t`Korean`,
-    lt: t`Lithuanian`,
-    lv: t`Latvian`,
-    nl: t`Dutch`,
-    no: t`Norwegian`,
-    pl: t`Polish`,
-    pt: t`Portuguese`,
-    pt_BR: t`Portuguese (Brazilian)`,
-    ro: t`Romanian`,
-    ru: t`Russian`,
-    sk: t`Slovak`,
-    sl: t`Slovenian`,
-    sr: t`Serbian`,
-    sv: t`Swedish`,
-    th: t`Thai`,
-    tr: t`Turkish`,
-    uk: t`Ukrainian`,
-    vi: t`Vietnamese`,
-    zh_Hans: t`Chinese (Simplified)`,
-    zh_Hant: t`Chinese (Traditional)`
+    es_MX: t`Spanish (Mexican)`
+    
   };
 };
 
